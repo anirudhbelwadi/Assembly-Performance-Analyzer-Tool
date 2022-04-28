@@ -1,0 +1,81 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #979797;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(175, 175, 175);
+}
+.navbar-toggler{
+  width: fit-content;
+}
+.nav-item a{
+    color: #7A9A01 !important;
+    font-weight: 600;
+    font-size: 16px;
+}
+.navbar_resize {
+  min-height: 60px;
+  transition: 0.2s;
+  background-color: white;
+}
+.navbar_noresize {
+  min-height: 78px;
+  transition: 0.2s;
+}
+.navbar_color{
+    background-color: #f5f5f5 !important;
+}
+.navbar_logo_noresize {
+  height: 52px;
+  transition: 0.2s;
+}
+.navbar_logo_resize {
+  height: 40px;
+  transition: 0.2s;
+  margin-top: -3px;
+}
+.navbar_toggler_noresize {
+  margin-top: 0px;
+  transition: 0.2s;
+}
+.navbar_toggler_resize {
+  margin-top: -6px;
+  transition: 0.2s;
+}
+button{
+    outline: none;
+    border: none;
+    background-color: #7A9A01;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    width: 145px;
+}
+footer{
+    height: fit-content;
+    background-color: #7A9A01;
+}
+
+.footer_icons{
+    color: white;
+}
+h2,h3,strong{
+  color: #7A9A01;
+}

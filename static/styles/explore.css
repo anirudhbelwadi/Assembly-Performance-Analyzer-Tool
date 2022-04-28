@@ -1,0 +1,7 @@
+td a:hover{
+    color: #5c7600;
+    transition: 0.2s;
+}
+td a{
+    color: #7A9A01;
+}
