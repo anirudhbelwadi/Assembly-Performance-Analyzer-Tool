@@ -24,7 +24,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="../static/images/logo/harvard_sustainability.png" height="50" alt="">
             </a>
             <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -75,7 +75,7 @@
                     </h2>
                 </div>
             </div>
-            <form action="">
+            <form action="/explore#dataTable" method="POST">
                 <div class="row">
                     <div class="col-lg-6 mb-4">
                         <h5>
@@ -84,51 +84,75 @@
                         <small>
                             Select a construction type
                         </small>
+                        <input class="form-check-input constructionType" required hidden type="radio"
+                            name="constructionType" id="constructionTypeNil" value="None">
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType1">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType1" value="constructionType1">
                             <label class="form-check-label" for="constructionType1">
                                 Window Wall
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType2">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType2" value="constructionType2">
                             <label class="form-check-label" for="constructionType2">
                                 Conventional Curtain Wall
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType3" value="constructionType3">
                             <label class="form-check-label" for="constructionType3">
+                                Unitized Curtain Wall
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType4" value="constructionType4">
+                            <label class="form-check-label" for="constructionType4">
+                                High Performance Curtain Wall
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType5" value="constructionType5">
+                            <label class="form-check-label" for="constructionType5">
                                 Steel-Framed Construction
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
-                            <label class="form-check-label" for="constructionType3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType6" value="constructionType6">
+                            <label class="form-check-label" for="constructionType6">
                                 Metal Buildings
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
-                            <label class="form-check-label" for="constructionType3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType7" value="constructionType7">
+                            <label class="form-check-label" for="constructionType7">
                                 Concrete and Mass Masonry Construction
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
-                            <label class="form-check-label" for="constructionType3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType8" value="constructionType8">
+                            <label class="form-check-label" for="constructionType8">
                                 Wood-Frame and Timber Construction
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
-                            <label class="form-check-label" for="constructionType3">
+                            <input class="form-check-input constructionType" required type="radio"
+                                name="constructionType" id="constructionType9" value="constructionType9">
+                            <label class="form-check-label" for="constructionType9">
                                 Balconies and Doors
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="constructionType" id="constructionType3">
-                            <label class="form-check-label" for="constructionType3">
+                            <input class="form-check-input constructionType" type="radio" name="constructionType"
+                                id="constructionType10" value="constructionType10">
+                            <label class="form-check-label" for="constructionType10">
                                 Roofs
                             </label>
                         </div>
@@ -140,41 +164,59 @@
                         <small>
                             (kgCO2e/m2)
                         </small>
+                        <input class="form-check-input carbonFootprint" required checked hidden type="radio"
+                            name="carbonFootprint" id="carbonFootprintNil" value="None">
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="carbonFootprint" id="carbonFootprint1">
+                            <input class="form-check-input carbonFootprint" type="radio" name="carbonFootprint"
+                                id="carbonFootprint1" value="0-325">
                             <label class="form-check-label" for="carbonFootprint1">
                                 0-325
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="carbonFootprint" id="carbonFootprint2">
+                            <input class="form-check-input carbonFootprint" type="radio" name="carbonFootprint"
+                                id="carbonFootprint2" value="325-650">
                             <label class="form-check-label" for="carbonFootprint2">
                                 325-650
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="carbonFootprint" id="carbonFootprint3">
+                            <input class="form-check-input carbonFootprint" type="radio" name="carbonFootprint"
+                                id="carbonFootprint3" value="650-975">
                             <label class="form-check-label" for="carbonFootprint3">
                                 650-975
                             </label>
                         </div>
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="carbonFootprint" id="carbonFootprint4">
+                            <input class="form-check-input carbonFootprint" type="radio" name="carbonFootprint"
+                                id="carbonFootprint4" value="975-1300">
                             <label class="form-check-label" for="carbonFootprint4">
                                 975-1300
                             </label>
                         </div>
                     </div>
                 </div>
-                <button class="mt-3 mb-5" onclick="window.location.href = '/explore';">
+                <button class="mb-1" type="reset" id="clearForm" style="color: red; background-color: transparent;">
+                    Clear Selection
+                </button>
+                <br>
+                <button class="mt-1 mb-5" type="submit">
                     View Database
                 </button>
             </form>
         </div>
     </header>
 
-    <section id="dataTable">
-        <div class="container">
+    {% if data_existing == False %}
+    <div class="container" id="dataTable">
+        <h2 class="text-danger">
+            No Data to Show
+        </h2>
+    </div>
+    {%else%}
+    {% if constructionType or carbonFootprint %}
+    <section id="dataTable" class="pt-5">
+        <div class="container pt-3">
             <div class="row">
                 <div class="col-12 mb-3">
                     <h2>
@@ -185,76 +227,36 @@
                     <table class="table mb-5">
                         <thead>
                             <tr>
-                                <th scope="col">S. No.</th>
                                 <th scope="col">Detail</th>
                                 <th scope="col">Construction Type</th>
                                 <th scope="col">EC (kgCO2e)</th>
-                                <th scope="col">EUI (kWh/m2)</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% for i in data %}
                             <tr>
-                                <th scope="row">1</th>
                                 <td>
-                                    <a href="/detail">
-                                        Window Wall System1⁄2 Spandrel Panel Clear Wall with No Interior Stud Cavity
-                                        Insulation
+                                    <a href="/detail/{{i[3]}}">
+                                        {{i[0]}}
                                     </a>
                                 </td>
                                 <td>
-                                    Window Wall
+                                    {{i[2]}}
                                 </td>
                                 <td>
-                                    Range X
-                                </td>
-                                <td>
-                                    Range X
+                                    {{i[1]}}
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>
-                                    <a href=/detail"">
-                                        Window Wall System1⁄2 Spandrel Panel Clear Wall with No Interior Stud Cavity
-                                        Insulation
-                                    </a>
-                                </td>
-                                <td>
-                                    Window Wall
-                                </td>
-                                <td>
-                                    Range X
-                                </td>
-                                <td>
-                                    Range X
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>
-                                    <a href="/detail">
-                                        Window Wall System1⁄2 Spandrel Panel Clear Wall with No Interior Stud Cavity
-                                        Insulation
-                                    </a>
-                                </td>
-                                <td>
-                                    Window Wall
-                                </td>
-                                <td>
-                                    Range X
-                                </td>
-                                <td>
-                                    Range X
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer>
+    {% endif %}
+    {% endif %}
+    <footer class="mt-4">
         <div class="container pt-4">
             <div class="row justify-content-between">
                 <div class="col-3">
@@ -321,6 +323,7 @@
 
     <!-- Manual Script -->
     <script src="../static/scripts/common.js""></script>
+    <script src=" ../static/scripts/explore.js""></script>
 </body>
-    
+
 </html>

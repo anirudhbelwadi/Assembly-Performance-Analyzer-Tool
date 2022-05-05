@@ -25,7 +25,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="../static/images/logo/harvard_sustainability.png" height="50" alt="">
             </a>
             <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -69,7 +69,7 @@
 
     <header>
         <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-5 align-items-center">
                 <div class="col-12 mt-5 mb-2">
                     <a href="/predictor" style="color: #7A9A01;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -92,40 +92,44 @@
                                 <th scope="col">Detail</th>
                                 <th scope="col">Construction Types</th>
                                 <th scope="col">Carbon Footprint (kgCO2e/m2)</th>
-                                <th scope="col">EUI (kWh/m2)</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% if window_data %}
                             <tr>
                                 <th>Window</th>
-                                <td>XXX</td>
-                                <td>XXX</td>
-                                <td>XXX</td>
+                                <td>{{window_data[0]}}</td>
+                                <td>{{window_data[1]}}</td>
                             </tr>
+                            {% endif %}
+                            {% if curtain_wall_data %}
                             <tr>
                                 <th>Curtain Wall</th>
-                                <td>XXX</td>
-                                <td>XXX</td>
-                                <td>XXX</td>
+                                <td>{{curtain_wall_data[0]}}</td>
+                                <td>{{curtain_wall_data[1]}}</td>
                             </tr>
+                            {% endif %}
+                            {% if balcony_roof_data %}
                             <tr>
                                 <th>Balcony/Roof</th>
-                                <td>XXX</td>
-                                <td>XXX</td>
-                                <td>XXX</td>
+                                <td>{{balcony_roof_data[0]}}</td>
+                                <td>{{balcony_roof_data[1]}}</td>
                             </tr>
+                            {% endif %}
+                            {% if opaque_wall_data %}
                             <tr>
                                 <th>Opaque Wall</th>
-                                <td>XXX</td>
-                                <td>XXX</td>
-                                <td>XXX</td>
+                                <td>{{opaque_wall_data[0]}}</td>
+                                <td>{{opaque_wall_data[1]}}</td>
                             </tr>
+                            {% endif %}
+                            {% if roofing_data %}
                             <tr>
                                 <th>Roofing</th>
-                                <td>XXX</td>
-                                <td>XXX</td>
-                                <td>XXX</td>
+                                <td>{{roofing_data[0]}}</td>
+                                <td>{{roofing_data[1]}}</td>
                             </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
@@ -139,24 +143,14 @@
                         (kgCO2e/m2)
                     </small>
                     <h5 class="mt-3 value">
-                        XXXX
-                    </h5>
-                    <h5 class="mt-4">
-                        <strong>
-                            EUI
-                        </strong>
-                    </h5>
-                    <small>
-                        (kWh/m2)
-                    </small>
-                    <h5 class="mt-3 value">
-                        XXXX
+                        {{ window_data[1] + curtain_wall_data[1] + balcony_roof_data[1] + opaque_wall_data[1] +
+                        roofing_data[1] }}
                     </h5>
                 </div>
             </div>
             <div class="row mt-5 mb-3">
                 <div class="col-lg-6">
-                    <img src="../static/images/predictor/model.png" class="w-100" alt="">
+                    <video src="../static/videos/predictor_page/details.mp4" class="w-100" autoplay loop muted></video>
                 </div>
                 <div class="col-lg-6">
                     <img src="../static/images/predictor/heatmap.jpg" class="w-100" alt="">
