@@ -37,7 +37,7 @@ def explore():
             else:
                 detail_no = constructionType[len(constructionType)-1]
             data = databaseCursor.execute(
-                "SELECT name,assemblyTotalEC,constructionType,detail FROM wallsystem2 WHERE detail LIKE '" + detail_no + ".%'")
+                "SELECT name,assemblyTotalEC,constructionType,detail FROM wallsystem2 WHERE detail LIKE '" + detail_no + ".%' ORDER BY assemblyTotalEC ASC")
             data = data.fetchall()
             databaseConnection.close()
             return render_template('explore.html', constructionType=constructionType, data=data)
