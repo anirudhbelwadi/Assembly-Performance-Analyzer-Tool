@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
 import sqlite3
+import pickle
+import sklearn
+
 
 app = Flask(__name__)
 
@@ -80,7 +83,11 @@ def analysis(id):
     if request.method == "POST":
         backpan = request.form['backpan']
         r_value = request.form['r_value']
-        value = '0.2621292965425263kgCO2e/m2'
+        with open('Model.pkl', 'rb') as f:
+            data = pickle.load(f)
+        value = data.predict([[float(backpan), float(r_value)]])
+        value = str(value[0])+' kgCO2e/m2'
+        print(value)
         return render_template('analysis.html', id=id, value=value, backpan=backpan, r_value=r_value)
 
 
