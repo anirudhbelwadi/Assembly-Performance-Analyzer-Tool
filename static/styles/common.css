@@ -76,6 +76,9 @@ footer{
 .footer_icons{
     color: white;
 }
-h2,h3,strong{
+h1,h2,h3,strong{
   color: #7A9A01;
+}
+video{
+    clip-path: inset(1px 1px);
 }

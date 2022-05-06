@@ -141,6 +141,49 @@
                         non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.s
                     </p>
                 </div>
+                <div class="col-12 bg-dark text-white rounded mb-5 pb-4" id="mlModel">
+                    <h3 class="mt-3 text-center">
+                        <u>
+                            ML Predictor Application
+                        </u>
+                    </h3>
+                    <p class="text-center">
+                        Input the values in the following to study the predicted LCA (A1-A3):
+                    </p>
+                    <form action="/analysis/{{id}}#mlModel" method="post">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 text-center px-4">
+
+                                <h5 class="mt-2">
+                                    Backpan Insulation Thickness
+                                </h5>
+                                <input type="text" name="backpan" required value="{{backpan}}">
+                                <h5 class="mt-3">
+                                    R-Value
+                                </h5>
+                                <input type="text" name="r_value" required value="{{r_value}}">
+                            </div>
+                            <div class="col-lg-4 text-center mb-4">
+                                <button class="mt-5" type="submit">
+                                    Predict
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="col-lg-4 text-center px-4">
+                                <h5>
+                                    Carbon Footprint
+                                </h5>
+                                <h5 class="mt-3 value">
+                                    {{value}}
+                                </h5>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </header>

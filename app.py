@@ -73,9 +73,15 @@ def detail(id):
     return render_template('detail.html', data=data, id=id, max=max)
 
 
-@ app.route('/analysis/<id>')
+@ app.route('/analysis/<id>', methods=['POST', 'GET'])
 def analysis(id):
-    return render_template('analysis.html', id=id)
+    if request.method == "GET":
+        return render_template('analysis.html', id=id)
+    if request.method == "POST":
+        backpan = request.form['backpan']
+        r_value = request.form['r_value']
+        value = '0.2621292965425263kgCO2e/m2'
+        return render_template('analysis.html', id=id, value=value, backpan=backpan, r_value=r_value)
 
 
 @ app.route('/predictor')

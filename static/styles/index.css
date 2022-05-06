@@ -1,6 +1,3 @@
 header .container .row{
     min-height: 100vh;
 }
-video{
-    clip-path: inset(1px 1px);
-}

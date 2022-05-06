@@ -107,10 +107,13 @@
                             %} 650-975 {% else %} 975-1300 {% endif %} </p>
                 </div>
                 <div class="col-lg-6 mb-2">
-                    <!-- <iframe class="w-100" width="560" height="315" src="https://www.youtube.com/embed/_OloldpTF-g"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> -->
+                    <img src="../static/details/{{id}}/base_with_annotation.png" class="w-100" alt="">
+                </div>
+                <div class="col-lg-6 mb-2">
+                    <video src="../static/details/{{id}}/detail.mp4" class="w-100" muted autoplay loop></video>
+                </div>
+                <div class="col-lg-6 mb-2">
+                    <video src="../static/details/{{id}}/heatmap.mp4" class="w-100" muted autoplay loop></video>
                 </div>
                 <div class="col-12 mb-4 mt-2">
                     <h3 class="mt-4">
@@ -147,9 +150,14 @@
                                 Density lb/ft3 (kg/m3)
                             </b>
                         </div>
-                        <div class="col-lg-2 mb-1">
+                        <div class="col-lg-1 mb-1">
                             <b>
-                                Specific Heat Btu/lb∙oF (J/kgK)
+                                Individual EC
+                            </b>
+                        </div>
+                        <div class="col-lg-1 mb-1">
+                            <b>
+                                Total Assemble EC
                             </b>
                         </div>
                     </div>
@@ -174,8 +182,11 @@
                         <div class="col-lg-2 mb-1">
                             {{ i[7] }}
                         </div>
-                        <div class="col-lg-2 mb-1">
-                            {{ i[8] }}
+                        <div class="col-lg-1 mb-1">
+                            {{ i[9] }}
+                        </div>
+                        <div class="col-lg-1 mb-1">
+                            {{ i[11] }}
                         </div>
                     </div>
                     {% endfor %}
