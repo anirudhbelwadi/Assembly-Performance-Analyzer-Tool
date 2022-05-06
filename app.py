@@ -123,7 +123,39 @@ def predict():
             "SELECT DISTINCT constructionType,assemblyTotalEC FROM wallsystem2 WHERE name = ?", (opaque_wall,)).fetchone()
         roofing_data = databaseCursor.execute(
             "SELECT DISTINCT constructionType,assemblyTotalEC FROM wallsystem2 WHERE name = ?", (roofing,)).fetchone()
-        return render_template('predict.html', window_data=window_data, curtain_wall_data=curtain_wall_data, balcony_roof_data=balcony_roof_data, opaque_wall_data=opaque_wall_data, roofing_data=roofing_data)
+        ec = [
+            window_data[1],
+            curtain_wall_data[1],
+            balcony_roof_data[1],
+            opaque_wall_data[1],
+            roofing_data[1]
+        ]
+        print(ec)
+        index_min = min(range(len(ec)), key=ec.__getitem__)
+        if index_min == 0:
+            max_ec_key = "Window"
+        elif index_min == 1:
+            max_ec_key = "Curtain Wall"
+        elif index_min == 2:
+            max_ec_key = "Balcony/Roof"
+        elif index_min == 3:
+            max_ec_key = "Opaque Wall"
+        elif index_min == 4:
+            max_ec_key = "Roofing"
+        index_max = max(range(len(ec)), key=ec.__getitem__)
+        if index_max == 0:
+            min_ec_key = "Window"
+        elif index_max == 1:
+            min_ec_key = "Curtain Wall"
+        elif index_max == 2:
+            min_ec_key = "Balcony/Roof"
+        elif index_max == 3:
+            min_ec_key = "Opaque Wall"
+        elif index_max == 4:
+            min_ec_key = "Roofing"
+        max_ec = max(ec)
+        min_ec = min(ec)
+        return render_template('predict.html', window_data=window_data, curtain_wall_data=curtain_wall_data, balcony_roof_data=balcony_roof_data, opaque_wall_data=opaque_wall_data, roofing_data=roofing_data, max_ec=max_ec, max_ec_key=max_ec_key, min_ec=min_ec, min_ec_key=min_ec_key)
 
 
 if __name__ == '__main__':
