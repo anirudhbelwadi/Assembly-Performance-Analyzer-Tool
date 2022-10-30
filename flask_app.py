@@ -2,10 +2,14 @@ from flask import Flask, render_template, request
 import sqlite3
 import pickle
 import sklearn
+import os
 
 
 app = Flask(__name__)
 
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+database_location = os.path.join(THIS_FOLDER, 'assembly_performance.db')
+model_location = os.path.join(THIS_FOLDER, 'Model.pkl')
 
 @app.route('/')
 def index():
@@ -24,8 +28,7 @@ def explore():
     if request.method == 'POST':
         constructionType = request.form["constructionType"]
         carbonFootprint = request.form["carbonFootprint"]
-        databaseConnection = sqlite3.connect(
-            'assembly_performance.db')
+        databaseConnection = sqlite3.connect(database_location)
         databaseCursor = databaseConnection.cursor()
         if constructionType == "None":
             carbonFootprint = carbonFootprint.split("-")
@@ -62,7 +65,7 @@ def explore():
 
 @ app.route('/detail/<id>')
 def detail(id):
-    databaseConnection = sqlite3.connect('assembly_performance.db')
+    databaseConnection = sqlite3.connect(database_location)
     databaseCursor = databaseConnection.cursor()
     data = databaseCursor.execute(
         "SELECT * FROM wallsystem2 WHERE detail = ?", (id,))
@@ -83,7 +86,7 @@ def analysis(id):
     if request.method == "POST":
         backpan = request.form['backpan']
         r_value = request.form['r_value']
-        with open('Model.pkl', 'rb') as f:
+        with open(model_location, 'rb') as f:
             data = pickle.load(f)
         value = data.predict([[float(backpan), float(r_value)]])
         value = str(value[0])+' kgCO2e/m2'
@@ -93,8 +96,7 @@ def analysis(id):
 
 @ app.route('/predictor')
 def predictor():
-    databaseConnection = sqlite3.connect(
-        'assembly_performance.db')
+    databaseConnection = sqlite3.connect(database_location)
     databaseCursor = databaseConnection.cursor()
     data = []
     for i in range(1, 11):
@@ -106,7 +108,7 @@ def predictor():
 @ app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        databaseConnection = sqlite3.connect('assembly_performance.db')
+        databaseConnection = sqlite3.connect(database_location)
         databaseCursor = databaseConnection.cursor()
         window = request.form["window"]
         curtain_wall = request.form["curtain_wall"]
